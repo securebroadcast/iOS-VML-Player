@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            !function(a,b,c,d,e,f,g,h){a.RaygunObject=e,a[e]=a[e]||function(){
+            (a[e].o=a[e].o||[]).push(arguments)},f=b.createElement(c),g=b.getElementsByTagName(c)[0],
+            f.async=1,f.src=d,g.parentNode.insertBefore(f,g),h=a.onerror,a.onerror=function(b,c,d,f,g){
+            h&&h(b,c,d,f,g),g||(g=new Error(b)),a[e].q=a[e].q||[],a[e].q.push({
+            e:g})}}(window,document,"script","//cdn.raygun.io/raygun4js/raygun.min.js","rg4js");
+        </script>
+         <script type="text/javascript">
+            rg4js('apiKey', 'Uq55cwO6zBZqCyhUGYMzWA');
+            rg4js('enableCrashReporting', true);
+        </script>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>VML</title>
+      <meta name="description" content="SecureBroadcastVML">         
+      <meta http-equiv="cleartype" content="on" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <meta content="telephone=no" name="format-detection" /> 
+    </head>
+    <body>
+        <div id="video" class="videoFrame"></div> 
+    </body>    
+    <script type="text/javascript" src="./bundle.js"></script>
+    <script type="text/javascript" >
+       (function () { 
+           window.addEventListener("message", function( event ) {      
+            initPlayer(event.data);               
+            }, false );
+       })();
+    </script>
+</html>

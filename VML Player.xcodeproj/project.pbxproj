@@ -15,6 +15,12 @@
 		1714BE00265E50C10040C109 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1714BDFE265E50C10040C109 /* LaunchScreen.storyboard */; };
 		1714BE0B265E50C10040C109 /* VML_PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BE0A265E50C10040C109 /* VML_PlayerTests.swift */; };
 		1714BE16265E50C10040C109 /* VML_PlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BE15265E50C10040C109 /* VML_PlayerUITests.swift */; };
+		1714BE26265E88650040C109 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BE25265E88650040C109 /* WebViewController.swift */; };
+		1714BE2A265FD53D0040C109 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE29265FD53D0040C109 /* index.html */; };
+		1714BE302660E2090040C109 /* bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE2C2660E2090040C109 /* bundle.js */; };
+		1714BE312660E2090040C109 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE2D2660E2090040C109 /* index.html */; };
+		1714BE322660E2090040C109 /* PlayerSetup.js in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE2E2660E2090040C109 /* PlayerSetup.js */; };
+		1714BE332660E2090040C109 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE2F2660E2090040C109 /* main.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		1714BE11265E50C10040C109 /* VML PlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VML PlayerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1714BE15265E50C10040C109 /* VML_PlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VML_PlayerUITests.swift; sourceTree = "<group>"; };
 		1714BE17265E50C10040C109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1714BE25265E88650040C109 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		1714BE29265FD53D0040C109 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		1714BE2C2660E2090040C109 /* bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bundle.js; sourceTree = "<group>"; };
+		1714BE2D2660E2090040C109 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		1714BE2E2660E2090040C109 /* PlayerSetup.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = PlayerSetup.js; sourceTree = "<group>"; };
+		1714BE2F2660E2090040C109 /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +111,16 @@
 		1714BDF2265E50BF0040C109 /* VML Player */ = {
 			isa = PBXGroup;
 			children = (
+				1714BE2B2660E1D50040C109 /* Client */,
 				1714BDF3265E50BF0040C109 /* AppDelegate.swift */,
 				1714BDF5265E50BF0040C109 /* SceneDelegate.swift */,
 				1714BDF7265E50BF0040C109 /* ViewController.swift */,
 				1714BDF9265E50BF0040C109 /* Main.storyboard */,
+				1714BE29265FD53D0040C109 /* index.html */,
 				1714BDFC265E50C10040C109 /* Assets.xcassets */,
 				1714BDFE265E50C10040C109 /* LaunchScreen.storyboard */,
 				1714BE01265E50C10040C109 /* Info.plist */,
+				1714BE25265E88650040C109 /* WebViewController.swift */,
 			);
 			path = "VML Player";
 			sourceTree = "<group>";
@@ -126,6 +141,17 @@
 				1714BE17265E50C10040C109 /* Info.plist */,
 			);
 			path = "VML PlayerUITests";
+			sourceTree = "<group>";
+		};
+		1714BE2B2660E1D50040C109 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				1714BE2C2660E2090040C109 /* bundle.js */,
+				1714BE2D2660E2090040C109 /* index.html */,
+				1714BE2F2660E2090040C109 /* main.css */,
+				1714BE2E2660E2090040C109 /* PlayerSetup.js */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,8 +258,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1714BE00265E50C10040C109 /* LaunchScreen.storyboard in Resources */,
+				1714BE2A265FD53D0040C109 /* index.html in Resources */,
+				1714BE302660E2090040C109 /* bundle.js in Resources */,
+				1714BE312660E2090040C109 /* index.html in Resources */,
+				1714BE332660E2090040C109 /* main.css in Resources */,
 				1714BDFD265E50C10040C109 /* Assets.xcassets in Resources */,
 				1714BDFB265E50BF0040C109 /* Main.storyboard in Resources */,
+				1714BE322660E2090040C109 /* PlayerSetup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +291,7 @@
 			files = (
 				1714BDF8265E50BF0040C109 /* ViewController.swift in Sources */,
 				1714BDF4265E50BF0040C109 /* AppDelegate.swift in Sources */,
+				1714BE26265E88650040C109 /* WebViewController.swift in Sources */,
 				1714BDF6265E50BF0040C109 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +469,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3L9K625F9;
 				INFOPLIST_FILE = "VML Player/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -455,6 +488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3L9K625F9;
 				INFOPLIST_FILE = "VML Player/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

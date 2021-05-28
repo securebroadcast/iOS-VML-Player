@@ -8,12 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBAction func openPlayer(_ sender: Any) {
+        let playerViewController = self.storyboard?.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+        playerViewController.name = nameTextField.text ?? ""
+        self.present(playerViewController, animated: true, completion: nil)
     }
-
-
 }
 
