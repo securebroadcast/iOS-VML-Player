@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-<html style="margin: 0; height: 100%; width: 100%;">
-   <head>
-        <meta charset="utf-8" />
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-   </head>
-   <body style="margin: 0; height: 100%; width: 100%;">
-        <iframe src="https://player.vml.technology/v1/" id="videoiFrame" frameborder="0" height="100%" width="100%" allowfullscreen></iframe>
-        <script>
-            function frameInit(stringDataParameters) {
-                let dataParameters = JSON.parse(stringDataParameters);
-                var data = { urlParameters: "", localData: dataParameters };
-                document.getElementById("videoiFrame").contentWindow.postMessage(data, "*");
-                sendDetails()
-            }
-            
-            function sendDetails() {
-                webkit.messageHandlers.postToiOS.postMessage("onReady");
-            }
-        </script>
-        <script type="text/javascript" src="./bundle.js"></script>
-        <script type="text/javascript" >
-           (function () {
-               window.addEventListener("message", function( event ) {
-                initPlayer(event.data);
-                }, false );
-           })();
-        </script>
-   </body>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>VML</title>
+      <meta name="description" content="SecureBroadcastVML">
+      <meta http-equiv="cleartype" content="on" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <meta content="telephone=no" name="format-detection" />
+    </head>
+    <body>
+        <div id="video" class="videoFrame"></div>
+    </body>
+    <script type="text/javascript" src="./bundle.js"></script>
+
+    <script type="text/javascript" >
+        
+        function frameInit(stringDataParameters) {
+            let dataParameters = JSON.parse(stringDataParameters);
+            var data = { urlParameters: "", localData: dataParameters };
+            initPlayer(data);
+        }
+    </script>
+
 </html>

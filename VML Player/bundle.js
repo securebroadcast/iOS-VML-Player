@@ -67,6 +67,7 @@ const logAnalytics = async(event, timeInVideo, metaData) => {
         meta_data: metaData
     };
 
+    webkit.messageHandlers.appCallback.postMessage(JSON.stringify(body));
     const response = await callService(url, null, 'POST', JSON.stringify(body));
     const json = await parseJson(response);
     setVariableInLocalStorage(SESSION_KEY, json.session);
@@ -172,6 +173,7 @@ function onElementClicked(id, clickTime) {
 const getService = async ({ url, options }) => getVML(baseUrl + "vml/" + getProjectID() + getParametersFromUrl(), { options, method: 'GET' });
 
 window.initPlayer = function(initData) {
+    
     this.urlParameters = initData.urlParameters
     this.localData = initData.localData
 
@@ -187,7 +189,7 @@ window.initPlayer = function(initData) {
         onReady: onReady,
         onProgress: onProgress,
         onElementClicked: onElementClicked,
-        data: initData.localData
+        data: initData.localData,
     })
 };
 
