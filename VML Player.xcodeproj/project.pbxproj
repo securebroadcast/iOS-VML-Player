@@ -15,12 +15,17 @@
 		1714BE00265E50C10040C109 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1714BDFE265E50C10040C109 /* LaunchScreen.storyboard */; };
 		1714BE0B265E50C10040C109 /* VML_PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BE0A265E50C10040C109 /* VML_PlayerTests.swift */; };
 		1714BE16265E50C10040C109 /* VML_PlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BE15265E50C10040C109 /* VML_PlayerUITests.swift */; };
-		1714BE26265E88650040C109 /* VMLPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BE25265E88650040C109 /* VMLPlayerViewController.swift */; };
-		1714BE2A265FD53D0040C109 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE29265FD53D0040C109 /* index.html */; };
-		1714BE302660E2090040C109 /* bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE2C2660E2090040C109 /* bundle.js */; };
 		1714BE322660E2090040C109 /* PlayerSetup.js in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE2E2660E2090040C109 /* PlayerSetup.js */; };
-		1714BE332660E2090040C109 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE2F2660E2090040C109 /* main.css */; };
-		FCC6A2CC266591E6001AF0E4 /* VMLPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC6A2CB266591E6001AF0E4 /* VMLPlayerViewController.xib */; };
+		FCDB33CA266631A8009C82DC /* VMLPlayerController.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDB33C8266631A8009C82DC /* VMLPlayerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCDB33CD266631A8009C82DC /* VMLPlayerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB33C6266631A8009C82DC /* VMLPlayerController.framework */; };
+		FCDB33CE266631A8009C82DC /* VMLPlayerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB33C6266631A8009C82DC /* VMLPlayerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FCDB33D626663227009C82DC /* VMLPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BE25265E88650040C109 /* VMLPlayerViewController.swift */; };
+		FCDB33DB26663238009C82DC /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE29265FD53D0040C109 /* index.html */; };
+		FCDB33ED26663240009C82DC /* bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE2C2660E2090040C109 /* bundle.js */; };
+		FCDB33EE26663240009C82DC /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE2F2660E2090040C109 /* main.css */; };
+		FCDB33FB26663247009C82DC /* VMLPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC6A2CB266591E6001AF0E4 /* VMLPlayerViewController.xib */; };
+		FCDB341626663E37009C82DC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB341526663E37009C82DC /* AudioToolbox.framework */; };
+		FCDB341826663E5A009C82DC /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB341726663E5A009C82DC /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +43,28 @@
 			remoteGlobalIDString = 1714BDEF265E50BF0040C109;
 			remoteInfo = "VML Player";
 		};
+		FCDB33CB266631A8009C82DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1714BDE8265E50BF0040C109 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCDB33C5266631A8009C82DC;
+			remoteInfo = VMLPlayerController;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FCDB33CF266631A8009C82DC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FCDB33CE266631A8009C82DC /* VMLPlayerController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1714BDF0265E50BF0040C109 /* VML Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VML Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +87,13 @@
 		1714BE2E2660E2090040C109 /* PlayerSetup.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = PlayerSetup.js; sourceTree = "<group>"; };
 		1714BE2F2660E2090040C109 /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
 		FCC6A2CB266591E6001AF0E4 /* VMLPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VMLPlayerViewController.xib; sourceTree = "<group>"; };
+		FCDB33C6266631A8009C82DC /* VMLPlayerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VMLPlayerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCDB33C8266631A8009C82DC /* VMLPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VMLPlayerController.h; sourceTree = "<group>"; };
+		FCDB33C9266631A8009C82DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCDB3400266632E9009C82DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		FCDB341126663E2B009C82DC /* VML Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VML Player.entitlements"; sourceTree = "<group>"; };
+		FCDB341526663E37009C82DC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FCDB341726663E5A009C82DC /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +101,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCDB33CD266631A8009C82DC /* VMLPlayerController.framework in Frameworks */,
+				FCDB341826663E5A009C82DC /* NetworkExtension.framework in Frameworks */,
+				FCDB341626663E37009C82DC /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +121,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCDB33C3266631A8009C82DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -94,7 +137,9 @@
 				1714BDF2265E50BF0040C109 /* VML Player */,
 				1714BE09265E50C10040C109 /* VML PlayerTests */,
 				1714BE14265E50C10040C109 /* VML PlayerUITests */,
+				FCDB33C7266631A8009C82DC /* VMLPlayerController */,
 				1714BDF1265E50BF0040C109 /* Products */,
+				FCDB33FF266632E9009C82DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +149,7 @@
 				1714BDF0265E50BF0040C109 /* VML Player.app */,
 				1714BE06265E50C10040C109 /* VML PlayerTests.xctest */,
 				1714BE11265E50C10040C109 /* VML PlayerUITests.xctest */,
+				FCDB33C6266631A8009C82DC /* VMLPlayerController.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,19 +157,15 @@
 		1714BDF2265E50BF0040C109 /* VML Player */ = {
 			isa = PBXGroup;
 			children = (
+				FCDB341126663E2B009C82DC /* VML Player.entitlements */,
 				1714BE2B2660E1D50040C109 /* Client */,
 				1714BDF3265E50BF0040C109 /* AppDelegate.swift */,
 				1714BDF5265E50BF0040C109 /* SceneDelegate.swift */,
 				1714BDF7265E50BF0040C109 /* ViewController.swift */,
 				1714BDF9265E50BF0040C109 /* Main.storyboard */,
-				1714BE2C2660E2090040C109 /* bundle.js */,
-				1714BE2F2660E2090040C109 /* main.css */,
-				1714BE29265FD53D0040C109 /* index.html */,
 				1714BDFC265E50C10040C109 /* Assets.xcassets */,
 				1714BDFE265E50C10040C109 /* LaunchScreen.storyboard */,
 				1714BE01265E50C10040C109 /* Info.plist */,
-				1714BE25265E88650040C109 /* VMLPlayerViewController.swift */,
-				FCC6A2CB266591E6001AF0E4 /* VMLPlayerViewController.xib */,
 			);
 			path = "VML Player";
 			sourceTree = "<group>";
@@ -154,7 +196,42 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
+		FCDB33C7266631A8009C82DC /* VMLPlayerController */ = {
+			isa = PBXGroup;
+			children = (
+				1714BE2C2660E2090040C109 /* bundle.js */,
+				1714BE2F2660E2090040C109 /* main.css */,
+				1714BE29265FD53D0040C109 /* index.html */,
+				1714BE25265E88650040C109 /* VMLPlayerViewController.swift */,
+				FCC6A2CB266591E6001AF0E4 /* VMLPlayerViewController.xib */,
+				FCDB33C8266631A8009C82DC /* VMLPlayerController.h */,
+				FCDB33C9266631A8009C82DC /* Info.plist */,
+			);
+			path = VMLPlayerController;
+			sourceTree = "<group>";
+		};
+		FCDB33FF266632E9009C82DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCDB341726663E5A009C82DC /* NetworkExtension.framework */,
+				FCDB341526663E37009C82DC /* AudioToolbox.framework */,
+				FCDB3400266632E9009C82DC /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FCDB33C1266631A8009C82DC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCDB33CA266631A8009C82DC /* VMLPlayerController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		1714BDEF265E50BF0040C109 /* VML Player */ = {
@@ -164,10 +241,12 @@
 				1714BDEC265E50BF0040C109 /* Sources */,
 				1714BDED265E50BF0040C109 /* Frameworks */,
 				1714BDEE265E50BF0040C109 /* Resources */,
+				FCDB33CF266631A8009C82DC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FCDB33CC266631A8009C82DC /* PBXTargetDependency */,
 			);
 			name = "VML Player";
 			productName = "VML Player";
@@ -210,6 +289,24 @@
 			productReference = 1714BE11265E50C10040C109 /* VML PlayerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		FCDB33C5266631A8009C82DC /* VMLPlayerController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCDB33D2266631A8009C82DC /* Build configuration list for PBXNativeTarget "VMLPlayerController" */;
+			buildPhases = (
+				FCDB33C1266631A8009C82DC /* Headers */,
+				FCDB33C2266631A8009C82DC /* Sources */,
+				FCDB33C3266631A8009C82DC /* Frameworks */,
+				FCDB33C4266631A8009C82DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VMLPlayerController;
+			productName = VMLPlayerController;
+			productReference = FCDB33C6266631A8009C82DC /* VMLPlayerController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -230,6 +327,9 @@
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 1714BDEF265E50BF0040C109;
 					};
+					FCDB33C5266631A8009C82DC = {
+						CreatedOnToolsVersion = 12.2;
+					};
 				};
 			};
 			buildConfigurationList = 1714BDEB265E50BF0040C109 /* Build configuration list for PBXProject "VML Player" */;
@@ -248,6 +348,7 @@
 				1714BDEF265E50BF0040C109 /* VML Player */,
 				1714BE05265E50C10040C109 /* VML PlayerTests */,
 				1714BE10265E50C10040C109 /* VML PlayerUITests */,
+				FCDB33C5266631A8009C82DC /* VMLPlayerController */,
 			);
 		};
 /* End PBXProject section */
@@ -258,13 +359,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1714BE00265E50C10040C109 /* LaunchScreen.storyboard in Resources */,
-				1714BE2A265FD53D0040C109 /* index.html in Resources */,
-				1714BE302660E2090040C109 /* bundle.js in Resources */,
-				1714BE332660E2090040C109 /* main.css in Resources */,
 				1714BDFD265E50C10040C109 /* Assets.xcassets in Resources */,
 				1714BDFB265E50BF0040C109 /* Main.storyboard in Resources */,
 				1714BE322660E2090040C109 /* PlayerSetup.js in Resources */,
-				FCC6A2CC266591E6001AF0E4 /* VMLPlayerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +379,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCDB33C4266631A8009C82DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCDB33ED26663240009C82DC /* bundle.js in Resources */,
+				FCDB33DB26663238009C82DC /* index.html in Resources */,
+				FCDB33EE26663240009C82DC /* main.css in Resources */,
+				FCDB33FB26663247009C82DC /* VMLPlayerViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -291,7 +399,6 @@
 			files = (
 				1714BDF8265E50BF0040C109 /* ViewController.swift in Sources */,
 				1714BDF4265E50BF0040C109 /* AppDelegate.swift in Sources */,
-				1714BE26265E88650040C109 /* VMLPlayerViewController.swift in Sources */,
 				1714BDF6265E50BF0040C109 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +419,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCDB33C2266631A8009C82DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCDB33D626663227009C82DC /* VMLPlayerViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -324,6 +439,11 @@
 			isa = PBXTargetDependency;
 			target = 1714BDEF265E50BF0040C109 /* VML Player */;
 			targetProxy = 1714BE12265E50C10040C109 /* PBXContainerItemProxy */;
+		};
+		FCDB33CC266631A8009C82DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCDB33C5266631A8009C82DC /* VMLPlayerController */;
+			targetProxy = FCDB33CB266631A8009C82DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -466,8 +586,10 @@
 		1714BE1B265E50C10040C109 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "VML Player/VML Player.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AAWR7RB6HE;
 				INFOPLIST_FILE = "VML Player/Info.plist";
@@ -485,8 +607,10 @@
 		1714BE1C265E50C10040C109 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "VML Player/VML Player.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AAWR7RB6HE;
 				INFOPLIST_FILE = "VML Player/Info.plist";
@@ -581,6 +705,64 @@
 			};
 			name = Release;
 		};
+		FCDB33D0266631A8009C82DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = AAWR7RB6HE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = VMLPlayerController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vmltechnology.VMLPlayerController;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FCDB33D1266631A8009C82DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = AAWR7RB6HE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = VMLPlayerController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vmltechnology.VMLPlayerController;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -616,6 +798,15 @@
 			buildConfigurations = (
 				1714BE21265E50C10040C109 /* Debug */,
 				1714BE22265E50C10040C109 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCDB33D2266631A8009C82DC /* Build configuration list for PBXNativeTarget "VMLPlayerController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCDB33D0266631A8009C82DC /* Debug */,
+				FCDB33D1266631A8009C82DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
