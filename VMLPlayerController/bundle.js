@@ -190,6 +190,7 @@ window.initPlayer = function(initData) {
         onProgress: onProgress,
         onElementClicked: onElementClicked,
         data: initData.localData,
+        allowedControls: ['time', 'progress', 'play']
     })
 };
 
