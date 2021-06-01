@@ -22,13 +22,34 @@ public class VMLPlayerViewController: UIViewController, UIWebViewDelegate {
     
     var playerData: NSMutableDictionary?
     var delegate: VMLPlayerDelegate?
-    @IBOutlet weak var webView: WKWebView!
+    var webView: WKWebView!
     
     public init(withData data: NSMutableDictionary, delegate: VMLPlayerDelegate) {
         let bundle = Bundle(for: VMLPlayerViewController.self)
         super.init(nibName: "VMLPlayerViewController", bundle: bundle)
         playerData = data
         self.delegate = delegate
+        setupPlayerView()
+    }
+    
+    public func setupPlayerView() {
+        
+        let configuration = WKWebViewConfiguration()
+        configuration.allowsInlineMediaPlayback = true
+        configuration.mediaTypesRequiringUserActionForPlayback = []
+        configuration.userContentController.removeScriptMessageHandler(forName: "appCallback")
+        configuration.userContentController.add(self, name: "appCallback")
+        
+        webView = WKWebView(frame: CGRect(x: 0,y: 0, width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height), configuration: configuration)
+        UserDefaults.standard.register(defaults: ["UserAgent" : "Chrome Safari"])
+        webView.scrollView.isScrollEnabled = false
+        
+        let bundle = Bundle(for: VMLPlayerViewController.self)
+        let url = bundle.url(forResource: "index", withExtension: "html")!
+        webView.loadFileURL(url, allowingReadAccessTo: url)
+        let request = URLRequest(url: url)
+        webView.navigationDelegate = self
+        webView.load(request)        
     }
     
     required init?(coder: NSCoder) {
@@ -36,16 +57,20 @@ public class VMLPlayerViewController: UIViewController, UIWebViewDelegate {
     }
     
     override public func viewDidLoad() {
-        UserDefaults.standard.register(defaults: ["UserAgent" : "Chrome Safari"])
-        webView.configuration.userContentController.add(self, name: "appCallback")
-        webView.scrollView.isScrollEnabled = false
-        let bundle = Bundle(for: VMLPlayerViewController.self)
-        let url = bundle.url(forResource: "index", withExtension: "html")!
-        webView.loadFileURL(url, allowingReadAccessTo: url)
-        let request = URLRequest(url: url)
-        webView.navigationDelegate = self
-        webView.load(request)
+        self.view.addSubview(webView)
+        setupWKWebViewConstraints()
+
     }
+    
+    func setupWKWebViewConstraints() {
+        let paddingConstant:CGFloat = 0
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        webView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: paddingConstant).isActive = true
+        webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -paddingConstant).isActive = true
+        webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: paddingConstant).isActive = true
+        webView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -paddingConstant).isActive = true
+    }
+    
 }
 
 extension VMLPlayerViewController : WKNavigationDelegate {

@@ -6,6 +6,20 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		FC73B10B266697DE003ACAC5 /* BuildFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FC73B10E266697DE003ACAC5 /* Build configuration list for PBXAggregateTarget "BuildFramework" */;
+			buildPhases = (
+				FC73B113266697E5003ACAC5 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = BuildFramework;
+			productName = BuildFramework;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1714BDF4265E50BF0040C109 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDF3265E50BF0040C109 /* AppDelegate.swift */; };
 		1714BDF6265E50BF0040C109 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDF5265E50BF0040C109 /* SceneDelegate.swift */; };
@@ -327,6 +341,9 @@
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 1714BDEF265E50BF0040C109;
 					};
+					FC73B10B266697DE003ACAC5 = {
+						CreatedOnToolsVersion = 12.2;
+					};
 					FCDB33C5266631A8009C82DC = {
 						CreatedOnToolsVersion = 12.2;
 					};
@@ -349,6 +366,7 @@
 				1714BE05265E50C10040C109 /* VML PlayerTests */,
 				1714BE10265E50C10040C109 /* VML PlayerUITests */,
 				FCDB33C5266631A8009C82DC /* VMLPlayerController */,
+				FC73B10B266697DE003ACAC5 /* BuildFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -391,6 +409,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FC73B113266697E5003ACAC5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "!/bin/sh\nPROJECT_NAME=\"VMLPlayerController\"\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}\"\n\n# Step 6. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1714BDEC265E50BF0040C109 /* Sources */ = {
@@ -705,6 +743,24 @@
 			};
 			name = Release;
 		};
+		FC73B10C266697DE003ACAC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AAWR7RB6HE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FC73B10D266697DE003ACAC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AAWR7RB6HE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		FCDB33D0266631A8009C82DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -715,6 +771,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = VMLPlayerController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -744,6 +801,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = VMLPlayerController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -798,6 +856,15 @@
 			buildConfigurations = (
 				1714BE21265E50C10040C109 /* Debug */,
 				1714BE22265E50C10040C109 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC73B10E266697DE003ACAC5 /* Build configuration list for PBXAggregateTarget "BuildFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC73B10C266697DE003ACAC5 /* Debug */,
+				FC73B10D266697DE003ACAC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -10,33 +10,26 @@ import VMLPlayerController
 
 class ViewController: UIViewController {
     
+    var playerData = NSMutableDictionary()
+    var playerViewController: VMLPlayerViewController!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        playerData.setValue("ba57cdd0-c254-11eb-9e81-d7b1112c314d", forKey: "vml_id")
+        playerData.setValue("Kris", forKey: "name")
+        playerData.setValue("Game VS Bryansburn", forKey: "session") // "Game VS Newry City"
+//        dataObject.setValue("", forKey: "profile_photo") // HTTP URL
+        playerData.setValue("8.14", forKey: "max_speed")
+        playerData.setValue("Saturday 29th May", forKey: "date")
+        playerData.setValue("0.98", forKey: "variation")
+        playerViewController = VMLPlayerViewController(withData: playerData, delegate: self)
+    }
+    
     @IBAction func openPlayer(_ sender: Any) {
-        
-        let dataObject: NSMutableDictionary = NSMutableDictionary()
-        dataObject.setValue("ba57cdd0-c254-11eb-9e81-d7b1112c314d", forKey: "vml_id")
-        dataObject.setValue("Kris", forKey: "name")
-        dataObject.setValue("Game VS Bryansburn", forKey: "session") // "Game VS Newry City"
-//        dataObject.setValue("", forKey: "profile_photo")
-        dataObject.setValue("8.14", forKey: "max_speed")
-        dataObject.setValue("Saturday 29th May", forKey: "date")
-        dataObject.setValue("0.98", forKey: "variation")
-        
-        let playerViewController = VMLPlayerViewController(withData: dataObject, delegate: self)
         self.present(playerViewController, animated: true, completion: nil)
-        
     }
     
     @IBAction func pushPlayer(_ sender: Any) {
-        
-        let dataObject: NSMutableDictionary = NSMutableDictionary()
-        dataObject.setValue("ba57cdd0-c254-11eb-9e81-d7b1112c314d", forKey: "vml_id")
-        dataObject.setValue("Kris", forKey: "name")
-        dataObject.setValue("Game VS Bryansburn", forKey: "session") // "Game VS Newry City"
-//        dataObject.setValue("", forKey: "profile_photo")
-        dataObject.setValue("8.14", forKey: "max_speed")
-        dataObject.setValue("Saturday 29th May", forKey: "date")
-        dataObject.setValue("0.98", forKey: "variation")
-        let playerViewController = VMLPlayerViewController(withData: dataObject, delegate: self)
         self.navigationController?.pushViewController(playerViewController, animated: true)
     }
     
