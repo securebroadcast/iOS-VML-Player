@@ -34,22 +34,32 @@ public class VMLPlayerViewController: UIViewController, UIWebViewDelegate {
     
     public func setupPlayerView() {
         
+        UserDefaults.standard.register(defaults: ["UserAgent" : "Chrome Safari"])
+
         let configuration = WKWebViewConfiguration()
         configuration.allowsInlineMediaPlayback = true
         configuration.mediaTypesRequiringUserActionForPlayback = []
         configuration.userContentController.removeScriptMessageHandler(forName: "appCallback")
         configuration.userContentController.add(self, name: "appCallback")
-        
-        webView = WKWebView(frame: CGRect(x: 0,y: 0, width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height), configuration: configuration)
-        UserDefaults.standard.register(defaults: ["UserAgent" : "Chrome Safari"])
-        webView.scrollView.isScrollEnabled = false
+        configuration.userContentController.addUserScript(self.getZoomDisableScript())
         
         let bundle = Bundle(for: VMLPlayerViewController.self)
         let url = bundle.url(forResource: "index", withExtension: "html")!
-        webView.loadFileURL(url, allowingReadAccessTo: url)
         let request = URLRequest(url: url)
+
+        webView = WKWebView(frame: CGRect(x: 0,y: 0, width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height), configuration: configuration)
+        webView.scrollView.isScrollEnabled = false
+        webView.loadFileURL(url, allowingReadAccessTo: url)
         webView.navigationDelegate = self
         webView.load(request)        
+    }
+    
+    private func getZoomDisableScript() -> WKUserScript {
+        let source: String = "var meta = document.createElement('meta');" +
+            "meta.name = 'viewport';" +
+            "meta.content = 'width=device-width, initial-scale=1.0, maximum- scale=1.0, user-scalable=no';" +
+            "var head = document.getElementsByTagName('head')[0];" + "head.appendChild(meta);"
+        return WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
     }
     
     required init?(coder: NSCoder) {
@@ -59,7 +69,6 @@ public class VMLPlayerViewController: UIViewController, UIWebViewDelegate {
     override public func viewDidLoad() {
         self.view.addSubview(webView)
         setupWKWebViewConstraints()
-
     }
     
     func setupWKWebViewConstraints() {
@@ -101,4 +110,5 @@ extension VMLPlayerViewController : WKScriptMessageHandler {
         self.delegate?.playerDidPostEvent(event: playerResponseData)
     }
 }
+
 
