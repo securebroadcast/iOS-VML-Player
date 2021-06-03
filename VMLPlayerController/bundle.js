@@ -6,8 +6,11 @@ const SESSION_KEY='SESSION_ID';
 var currentTimeInVideo = 0;
 var urlParameters = "";
 var localData = "";
+var playerOptions = {};
 var projectDuration;
 var isFirstPLay = false;
+var playFunction;
+var pauseFunction;
 
 //const baseUrl = "http://localhost:3000/dev/";
 const baseUrl =  "https://1y0yuxp5wc.execute-api.eu-west-1.amazonaws.com/prod/";
@@ -154,8 +157,28 @@ function onVideoEnd() {
     logAnalytics("COMPLETE", currentTimeInVideo, null);
 }
 
-function onReady(totalDuration) {
+window.playVideo = function() {
+    playFunction()
+}
+
+window.pauseVideo = function() {
+    pauseFunction()
+}
+
+function onReady({totalDuration, actions}) {
     logAnalytics("READY", 0.0, null);
+    
+    playFunction = actions.play;
+    pauseFunction = actions.pause;
+
+    console.log(this.playerOptions)
+
+    if (this.playerOptions.autoplay == true) {
+
+    console.log("Auto playing")
+        actions.play();
+    }
+
 }
 
 function onElementClicked(id, clickTime) {
@@ -172,10 +195,12 @@ function onElementClicked(id, clickTime) {
 
 const getService = async ({ url, options }) => getVML(baseUrl + "vml/" + getProjectID() + getParametersFromUrl(), { options, method: 'GET' });
 
-window.initPlayer = function(initData) {
+window.initPlayer = function(initData, playerOptions) {
     
-    this.urlParameters = initData.urlParameters
-    this.localData = initData.localData
+    this.urlParameters = initData.urlParameters;
+    this.localData = initData.localData;
+    this.playerOptions = playerOptions;
+    var displayControls = playerOptions.showPlayerControls == true ?  ['time', 'progress', 'play'] : [];
 
     createWebPlayer({
         attachTo: "video",
@@ -184,13 +209,15 @@ window.initPlayer = function(initData) {
         onPlay: onPlay,
         onPause: onPause,
         onFullScreenToggle: onFullScreenToggle,
+        autoLoop: playerOptions.autoloop,
         onVideoEnd: onVideoEnd,
         progressInterval: 3,
         onReady: onReady,
         onProgress: onProgress,
         onElementClicked: onElementClicked,
         data: initData.localData,
-        allowedControls: ['time', 'progress', 'play']
+        useOverlayControls: playerOptions.showPlayerControls,
+        allowedControls: displayControls
     })
 };
 

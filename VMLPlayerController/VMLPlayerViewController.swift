@@ -8,10 +8,31 @@
 import UIKit
 import WebKit
 
-public class PlayerEvent: Codable {
-    var event: String? // Event Types: PLAYING, PAUSED, ELEMENT_CLICKED, COMPLETE, READY
-    var player_time: Float?
-    var meta_data: String? // IF Event is ELEMENT_CLICKED, meta_data = the Element ID that was clicked
+public enum EventType: String {
+    case playing = "PLAYING"
+    case paused = "PAUSED"
+    case element_clicked = "ELEMENT_CLICKED"
+    case completed = "COMPLETE"
+    case ready = "READY"
+}
+
+public class PlayerEvent: Decodable {
+    public var event: String? // Event Types: PLAYING, PAUSED, ELEMENT_CLICKED, COMPLETE, READY
+    public var player_time: Float?
+    public var meta_data: String? // IF Event is ELEMENT_CLICKED, meta_data = the Element ID that was clicked
+}
+
+public struct PlayerControls: Encodable {
+    
+    var autoplay: Bool
+    var autoloop: Bool
+    var showPlayerControls: Bool
+    
+    public init(autoplay: Bool, autoloop: Bool, showPlayerControls: Bool) {
+        self.autoplay = autoplay
+        self.autoloop = autoloop
+        self.showPlayerControls = showPlayerControls
+    }
 }
 
 public protocol VMLPlayerDelegate {
@@ -21,21 +42,27 @@ public protocol VMLPlayerDelegate {
 public class VMLPlayerViewController: UIViewController, UIWebViewDelegate {
     
     var playerData: NSMutableDictionary?
+    var playerControls: PlayerControls = PlayerControls(autoplay: false, autoloop: false, showPlayerControls: false)
     var delegate: VMLPlayerDelegate?
     var webView: WKWebView!
     
-    public init(withData data: NSMutableDictionary, delegate: VMLPlayerDelegate) {
+    public init(withData data: NSMutableDictionary, delegate: VMLPlayerDelegate, playerControls: PlayerControls?) {
         let bundle = Bundle(for: VMLPlayerViewController.self)
         super.init(nibName: "VMLPlayerViewController", bundle: bundle)
         playerData = data
         self.delegate = delegate
+        
+        if let controls = playerControls {
+            self.playerControls = controls
+        }
+        
         setupPlayerView()
     }
     
     public func setupPlayerView() {
         
         UserDefaults.standard.register(defaults: ["UserAgent" : "Chrome Safari"])
-
+        
         let configuration = WKWebViewConfiguration()
         configuration.allowsInlineMediaPlayback = true
         configuration.mediaTypesRequiringUserActionForPlayback = []
@@ -46,7 +73,7 @@ public class VMLPlayerViewController: UIViewController, UIWebViewDelegate {
         let bundle = Bundle(for: VMLPlayerViewController.self)
         let url = bundle.url(forResource: "index", withExtension: "html")!
         let request = URLRequest(url: url)
-
+        
         webView = WKWebView(frame: CGRect(x: 0,y: 0, width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height), configuration: configuration)
         webView.scrollView.isScrollEnabled = false
         webView.loadFileURL(url, allowingReadAccessTo: url)
@@ -80,14 +107,24 @@ public class VMLPlayerViewController: UIViewController, UIWebViewDelegate {
         webView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -paddingConstant).isActive = true
     }
     
+    public func play() {
+        self.webView.evaluateJavaScript("playVideo()")
+    }
+    
+    public func pause() {
+        self.webView.evaluateJavaScript("pauseVideo()")        
+    }
 }
 
 extension VMLPlayerViewController : WKNavigationDelegate {
     
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         let jsonData = try! JSONSerialization.data(withJSONObject: playerData ?? NSMutableDictionary())
-        let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
-        self.webView.evaluateJavaScript("frameInit('\(jsonString!)')")
+        let playerDataString = String(data: jsonData, encoding: String.Encoding.utf8)
+        let playerControls = try! JSONEncoder().encode(playerControls)
+        let jsonPlayerControls = String(data: playerControls, encoding: String.Encoding.utf8)
+
+        self.webView.evaluateJavaScript("frameInit('\(playerDataString!)', '\(jsonPlayerControls!)')")
     }
     
     public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {

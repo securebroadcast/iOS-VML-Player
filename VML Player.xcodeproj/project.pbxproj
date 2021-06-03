@@ -30,6 +30,8 @@
 		1714BE0B265E50C10040C109 /* VML_PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BE0A265E50C10040C109 /* VML_PlayerTests.swift */; };
 		1714BE16265E50C10040C109 /* VML_PlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BE15265E50C10040C109 /* VML_PlayerUITests.swift */; };
 		1714BE322660E2090040C109 /* PlayerSetup.js in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE2E2660E2090040C109 /* PlayerSetup.js */; };
+		FCD551FC26691A940003E0B8 /* EmbeddedPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD551FA26691A940003E0B8 /* EmbeddedPlayerViewController.swift */; };
+		FCD551FD26691A940003E0B8 /* EmbeddedPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD551FB26691A940003E0B8 /* EmbeddedPlayerViewController.xib */; };
 		FCDB33CA266631A8009C82DC /* VMLPlayerController.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDB33C8266631A8009C82DC /* VMLPlayerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCDB33CD266631A8009C82DC /* VMLPlayerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB33C6266631A8009C82DC /* VMLPlayerController.framework */; };
 		FCDB33CE266631A8009C82DC /* VMLPlayerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCDB33C6266631A8009C82DC /* VMLPlayerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -101,6 +103,8 @@
 		1714BE2E2660E2090040C109 /* PlayerSetup.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = PlayerSetup.js; sourceTree = "<group>"; };
 		1714BE2F2660E2090040C109 /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
 		FCC6A2CB266591E6001AF0E4 /* VMLPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VMLPlayerViewController.xib; sourceTree = "<group>"; };
+		FCD551FA26691A940003E0B8 /* EmbeddedPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedPlayerViewController.swift; sourceTree = "<group>"; };
+		FCD551FB26691A940003E0B8 /* EmbeddedPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmbeddedPlayerViewController.xib; sourceTree = "<group>"; };
 		FCDB33C6266631A8009C82DC /* VMLPlayerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VMLPlayerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDB33C8266631A8009C82DC /* VMLPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VMLPlayerController.h; sourceTree = "<group>"; };
 		FCDB33C9266631A8009C82DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 				1714BDFC265E50C10040C109 /* Assets.xcassets */,
 				1714BDFE265E50C10040C109 /* LaunchScreen.storyboard */,
 				1714BE01265E50C10040C109 /* Info.plist */,
+				FCD551FA26691A940003E0B8 /* EmbeddedPlayerViewController.swift */,
+				FCD551FB26691A940003E0B8 /* EmbeddedPlayerViewController.xib */,
 			);
 			path = "VML Player";
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1714BE00265E50C10040C109 /* LaunchScreen.storyboard in Resources */,
+				FCD551FD26691A940003E0B8 /* EmbeddedPlayerViewController.xib in Resources */,
 				1714BDFD265E50C10040C109 /* Assets.xcassets in Resources */,
 				1714BDFB265E50BF0040C109 /* Main.storyboard in Resources */,
 				1714BE322660E2090040C109 /* PlayerSetup.js in Resources */,
@@ -438,6 +445,7 @@
 				1714BDF8265E50BF0040C109 /* ViewController.swift in Sources */,
 				1714BDF4265E50BF0040C109 /* AppDelegate.swift in Sources */,
 				1714BDF6265E50BF0040C109 /* SceneDelegate.swift in Sources */,
+				FCD551FC26691A940003E0B8 /* EmbeddedPlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,7 +564,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -611,7 +619,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -631,6 +639,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AAWR7RB6HE;
 				INFOPLIST_FILE = "VML Player/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -652,6 +661,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AAWR7RB6HE;
 				INFOPLIST_FILE = "VML Player/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -774,7 +784,7 @@
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = VMLPlayerController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -804,7 +814,7 @@
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = VMLPlayerController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

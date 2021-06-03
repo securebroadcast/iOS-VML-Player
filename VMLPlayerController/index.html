@@ -17,11 +17,13 @@
 
     <script type="text/javascript" >
         
-        function frameInit(stringDataParameters) {
+        function frameInit(stringDataParameters, playerOptions) {
             let dataParameters = JSON.parse(stringDataParameters);
+            let playerOptionsJSON = JSON.parse(playerOptions);
             var data = { urlParameters: "", localData: dataParameters };
-            initPlayer(data);
+            initPlayer(data, playerOptionsJSON);
         }
+        
     </script>
 
 </html>
