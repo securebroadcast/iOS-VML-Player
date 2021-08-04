@@ -1,5 +1,5 @@
 
-@import "../node_modules/@securebroadcast/sbtwebplayer/dist/webplayer.css";
+@import "node_modules/@securebroadcast/sbtwebplayer/dist/webplayer.css";
 
 body {
     background-color: black;

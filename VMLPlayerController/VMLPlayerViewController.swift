@@ -65,7 +65,8 @@ public class VMLPlayerViewController: UIViewController, UIWebViewDelegate {
         
         let configuration = WKWebViewConfiguration()
         configuration.allowsInlineMediaPlayback = true
-        configuration.mediaTypesRequiringUserActionForPlayback = []
+        configuration.allowsAirPlayForMediaPlayback = false
+        configuration.mediaTypesRequiringUserActionForPlayback = .all
         configuration.userContentController.removeScriptMessageHandler(forName: "appCallback")
         configuration.userContentController.add(self, name: "appCallback")
         configuration.userContentController.addUserScript(self.getZoomDisableScript())
