@@ -29,7 +29,6 @@
 		1714BE00265E50C10040C109 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1714BDFE265E50C10040C109 /* LaunchScreen.storyboard */; };
 		1714BE0B265E50C10040C109 /* VML_PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BE0A265E50C10040C109 /* VML_PlayerTests.swift */; };
 		1714BE16265E50C10040C109 /* VML_PlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BE15265E50C10040C109 /* VML_PlayerUITests.swift */; };
-		1714BE322660E2090040C109 /* PlayerSetup.js in Resources */ = {isa = PBXBuildFile; fileRef = 1714BE2E2660E2090040C109 /* PlayerSetup.js */; };
 		FCD551FC26691A940003E0B8 /* EmbeddedPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD551FA26691A940003E0B8 /* EmbeddedPlayerViewController.swift */; };
 		FCD551FD26691A940003E0B8 /* EmbeddedPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD551FB26691A940003E0B8 /* EmbeddedPlayerViewController.xib */; };
 		FCDB33CA266631A8009C82DC /* VMLPlayerController.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDB33C8266631A8009C82DC /* VMLPlayerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -100,7 +99,6 @@
 		1714BE25265E88650040C109 /* VMLPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMLPlayerViewController.swift; sourceTree = "<group>"; };
 		1714BE29265FD53D0040C109 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		1714BE2C2660E2090040C109 /* bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bundle.js; sourceTree = "<group>"; };
-		1714BE2E2660E2090040C109 /* PlayerSetup.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = PlayerSetup.js; sourceTree = "<group>"; };
 		1714BE2F2660E2090040C109 /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
 		FCC6A2CB266591E6001AF0E4 /* VMLPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VMLPlayerViewController.xib; sourceTree = "<group>"; };
 		FCD551FA26691A940003E0B8 /* EmbeddedPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedPlayerViewController.swift; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				FCDB341126663E2B009C82DC /* VML Player.entitlements */,
-				1714BE2B2660E1D50040C109 /* Client */,
 				1714BDF3265E50BF0040C109 /* AppDelegate.swift */,
 				1714BDF5265E50BF0040C109 /* SceneDelegate.swift */,
 				1714BDF7265E50BF0040C109 /* ViewController.swift */,
@@ -206,14 +203,6 @@
 				1714BE17265E50C10040C109 /* Info.plist */,
 			);
 			path = "VML PlayerUITests";
-			sourceTree = "<group>";
-		};
-		1714BE2B2660E1D50040C109 /* Client */ = {
-			isa = PBXGroup;
-			children = (
-				1714BE2E2660E2090040C109 /* PlayerSetup.js */,
-			);
-			path = Client;
 			sourceTree = "<group>";
 		};
 		FCDB33C7266631A8009C82DC /* VMLPlayerController */ = {
@@ -386,7 +375,6 @@
 				FCD551FD26691A940003E0B8 /* EmbeddedPlayerViewController.xib in Resources */,
 				1714BDFD265E50C10040C109 /* Assets.xcassets in Resources */,
 				1714BDFB265E50BF0040C109 /* Main.storyboard in Resources */,
-				1714BE322660E2090040C109 /* PlayerSetup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -198,6 +198,7 @@ window.initPlayer = function(initData, playerOptions) {
     this.localData = initData.localData;
     this.playerOptions = playerOptions;
     var displayControls = playerOptions.showPlayerControls == true ?  ['time', 'progress', 'play'] : [];
+    var aspectRatio = playerOptions.videoFormat;
 
     createWebPlayer({
         attachTo: "video",
@@ -214,6 +215,7 @@ window.initPlayer = function(initData, playerOptions) {
         onElementClicked: onElementClicked,
         data: initData.localData,
         useOverlayControls: playerOptions.showPlayerControls,
-        allowedControls: displayControls
+        allowedControls: displayControls,
+        aspectRatio: aspectRatio
     })
 };

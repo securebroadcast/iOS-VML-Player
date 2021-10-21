@@ -27,11 +27,13 @@ public struct PlayerControls: Encodable {
     var autoplay: Bool
     var autoloop: Bool
     var showPlayerControls: Bool
+    var videoFormat: String
     
-    public init(autoplay: Bool, autoloop: Bool, showPlayerControls: Bool) {
+    public init(autoplay: Bool, autoloop: Bool, showPlayerControls: Bool, videoFormat: String) {
         self.autoplay = autoplay
         self.autoloop = autoloop
         self.showPlayerControls = showPlayerControls
+        self.videoFormat = videoFormat
     }
 }
 
@@ -39,12 +41,17 @@ public protocol VMLPlayerDelegate {
     func playerDidPostEvent(event: PlayerEvent)
 }
 
+// Player Formats
+public let SIXTEENBYNINE = "SIXTEENBYNINE"
+public let THREEBYFOUR = "THREEBYFOUR"
+
 public class VMLPlayerViewController: UIViewController, UIWebViewDelegate {
     
     var playerData: NSMutableDictionary?
-    var playerControls: PlayerControls = PlayerControls(autoplay: false, autoloop: false, showPlayerControls: false)
+    var playerControls: PlayerControls = PlayerControls(autoplay: false, autoloop: false, showPlayerControls: false, videoFormat: SIXTEENBYNINE)
     var delegate: VMLPlayerDelegate?
     var webView: WKWebView!
+
     
     public init(withData data: NSMutableDictionary, delegate: VMLPlayerDelegate, playerControls: PlayerControls?) {
         let bundle = Bundle(for: VMLPlayerViewController.self)
@@ -85,7 +92,7 @@ public class VMLPlayerViewController: UIViewController, UIWebViewDelegate {
     private func getZoomDisableScript() -> WKUserScript {
         let source: String = "var meta = document.createElement('meta');" +
             "meta.name = 'viewport';" +
-            "meta.content = 'width=device-width, initial-scale=1.0, maximum- scale=1.0, user-scalable=no';" +
+            "meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';" +
             "var head = document.getElementsByTagName('head')[0];" + "head.appendChild(meta);"
         return WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
     }

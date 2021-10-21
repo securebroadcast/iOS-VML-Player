@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         playerData.setValue("1.98", forKey: "variation")
         playerData.setValue("negitive", forKey: "trend")
         
-        let playerControls = PlayerControls(autoplay: false, autoloop: false, showPlayerControls: true)
+        let playerControls = PlayerControls(autoplay: false, autoloop: false, showPlayerControls: true, videoFormat: THREEBYFOUR)
         
         playerViewController = VMLPlayerViewController(withData: playerData, delegate: self, playerControls: playerControls)
         self.present(playerViewController, animated: true, completion: nil)
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         playerData.setValue("negitive", forKey: "trend")
         
         
-        let playerControls = PlayerControls(autoplay: true, autoloop: true, showPlayerControls: false)
+        let playerControls = PlayerControls(autoplay: true, autoloop: true, showPlayerControls: false, videoFormat: THREEBYFOUR)
         playerViewController = VMLPlayerViewController(withData: playerData, delegate: self, playerControls: playerControls)
         self.navigationController?.pushViewController(playerViewController, animated: true)
     }

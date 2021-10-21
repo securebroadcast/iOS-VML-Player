@@ -21,15 +21,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phZ-gM-0kz">
-                    <rect key="frame" x="16" y="192" width="355.66666666666669" height="200"/>
+                    <rect key="frame" x="0.0" y="64" width="390" height="520"/>
                     <color key="backgroundColor" systemColor="separatorColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="phZ-gM-0kz" secondAttribute="height" multiplier="16:9" id="9sQ-nM-Jem"/>
-                        <constraint firstAttribute="height" constant="200" id="w5b-5S-hRX"/>
+                        <constraint firstAttribute="width" secondItem="phZ-gM-0kz" secondAttribute="height" multiplier="3:4" id="9sQ-nM-Jem"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRM-gH-VPR">
-                    <rect key="frame" x="91" y="766.66666666666663" width="30" height="30"/>
+                    <rect key="frame" x="0.0" y="766.66666666666663" width="30" height="30"/>
                     <state key="normal" title="Play"/>
                     <connections>
                         <action selector="playTap:" destination="-1" eventType="touchUpInside" id="O84-Yf-iIm"/>
@@ -47,10 +46,12 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XRM-gH-VPR" secondAttribute="bottom" constant="13.333333333333258" id="JBl-YV-z1Z"/>
-                <constraint firstItem="phZ-gM-0kz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="148" id="Wgg-Id-cIP"/>
-                <constraint firstItem="phZ-gM-0kz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="e6H-hC-JUg"/>
-                <constraint firstItem="XRM-gH-VPR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="91" id="iTt-Nj-InR"/>
+                <constraint firstItem="phZ-gM-0kz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Wgg-Id-cIP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="phZ-gM-0kz" secondAttribute="trailing" id="WnK-Zk-V2j"/>
+                <constraint firstItem="phZ-gM-0kz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="e6H-hC-JUg"/>
+                <constraint firstItem="XRM-gH-VPR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="iTt-Nj-InR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YbJ-ci-n9j" secondAttribute="trailing" constant="94" id="sf6-CN-82R"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="phZ-gM-0kz" secondAttribute="trailing" id="t8O-Kn-1i5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YbJ-ci-n9j" secondAttribute="bottom" constant="13" id="vlx-NG-C1x"/>
             </constraints>
             <point key="canvasLocation" x="-16" y="62"/>
