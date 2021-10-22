@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func openPlayer(_ sender: Any) {
-        playerData.setValue("ba57cdd0-c254-11eb-9e81-d7b1112c314d", forKey: "vml_id")
+        playerData.setValue("8be87c20-327e-11ec-b6e6-a9d9d60d8da9", forKey: "vml_id")
         playerData.setValue("Kris", forKey: "name")
         playerData.setValue("Game VS Bryansburn", forKey: "session") // "Game VS Newry City"
 //        dataObject.setValue("", forKey: "profile_photo") // HTTP URL
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pushPlayer(_ sender: Any) {
-        playerData.setValue("ba57cdd0-c254-11eb-9e81-d7b1112c314d", forKey: "vml_id")
+        playerData.setValue("8be87c20-327e-11ec-b6e6-a9d9d60d8da9", forKey: "vml_id")
         playerData.setValue("Kris", forKey: "name")
         playerData.setValue("Game VS Bryansburn", forKey: "session") // "Game VS Newry City"
 //        dataObject.setValue("", forKey: "profile_photo") // HTTP URL
