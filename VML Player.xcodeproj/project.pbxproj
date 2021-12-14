@@ -100,6 +100,9 @@
 		1714BE29265FD53D0040C109 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		1714BE2C2660E2090040C109 /* bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bundle.js; sourceTree = "<group>"; };
 		1714BE2F2660E2090040C109 /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
+		C9F04F512768AAEA0074D981 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C9F04F522768AAEA0074D981 /* VMLPlayerController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = VMLPlayerController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C9F04F532768ABB10074D981 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FCC6A2CB266591E6001AF0E4 /* VMLPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VMLPlayerViewController.xib; sourceTree = "<group>"; };
 		FCD551FA26691A940003E0B8 /* EmbeddedPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedPlayerViewController.swift; sourceTree = "<group>"; };
 		FCD551FB26691A940003E0B8 /* EmbeddedPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmbeddedPlayerViewController.xib; sourceTree = "<group>"; };
@@ -150,6 +153,9 @@
 		1714BDE7265E50BF0040C109 = {
 			isa = PBXGroup;
 			children = (
+				C9F04F512768AAEA0074D981 /* README.md */,
+				C9F04F522768AAEA0074D981 /* VMLPlayerController.podspec */,
+				C9F04F532768ABB10074D981 /* LICENSE */,
 				1714BDF2265E50BF0040C109 /* VML Player */,
 				1714BE09265E50C10040C109 /* VML PlayerTests */,
 				1714BE14265E50C10040C109 /* VML PlayerUITests */,
