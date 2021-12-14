@@ -18,6 +18,7 @@ Pod::Spec.new do |spec|
   spec.license      = "MIT"
 
   spec.platform     = :ios, "12.0"
+  spec.swift_version = "5.0"
 
   spec.source       = { :git => "https://github.com/securebroadcast/iOS-VML-Player.git", :tag => "#{spec.version}" }
 
@@ -25,24 +26,13 @@ Pod::Spec.new do |spec|
   # spec.exclude_files = "Classes/Exclude"
   # spec.public_header_files = "Classes/**/*.h"
 
-  spec.resource  = "bundle.js"
-  spec.resource  = "main.css"
-  spec.resource  = "index.html"
-  spec.resource  = "VMLPlayerViewController.xib"
+  spec.resources  = [
+    "VMLPlayerController/bundle.js",
+    "VMLPlayerController/main.css",
+    "VMLPlayerController/index.html",
+    "VMLPlayerController/VMLPlayerViewController.xib"
+  ]
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
-
-  # spec.framework  = "SomeFramework"
-  # spec.frameworks = "SomeFramework", "AnotherFramework"
-
-  # spec.library   = "iconv"
-  # spec.libraries = "iconv", "xml2"
 
 end
