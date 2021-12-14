@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "VMLPlayerController"
-  spec.version      = "0.0.2t"
+  spec.version      = "1.0.0"
   spec.summary      = "VMLPlayerController"
 
   spec.homepage     = "https://github.com/securebroadcast/iOS-VML-Player"
@@ -17,14 +17,12 @@ Pod::Spec.new do |spec|
   spec.authors      = "Jordan Carroll", "Kris Jones", "Frazer Robinson"
   spec.license      = "MIT"
 
-  spec.platform     = :ios, "12.0"
+  spec.platform     = :ios, "12.1"
   spec.swift_version = "5.0"
 
   spec.source       = { :git => "https://github.com/securebroadcast/iOS-VML-Player.git", :tag => "#{spec.version}" }
 
   spec.source_files  = "VMLPlayerController/VMLPlayerViewController.swift"
-  # spec.exclude_files = "Classes/Exclude"
-  # spec.public_header_files = "Classes/**/*.h"
 
   spec.resources  = [
     "VMLPlayerController/bundle.js",
@@ -32,7 +30,5 @@ Pod::Spec.new do |spec|
     "VMLPlayerController/index.html",
     "VMLPlayerController/VMLPlayerViewController.xib"
   ]
-
-  # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 end
