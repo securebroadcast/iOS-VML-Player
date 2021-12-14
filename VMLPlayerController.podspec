@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "VMLPlayerController"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.1t"
   spec.summary      = "VMLPlayerController"
 
   spec.homepage     = "https://github.com/securebroadcast/iOS-VML-Player"
