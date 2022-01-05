@@ -1,12 +1,12 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "VMLPlayerController"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "VMLPlayerController"
 
   spec.homepage     = "https://github.com/securebroadcast/iOS-VML-Player"
 
-  spec.authors      = "Jordan Carroll", "Kris Jones", "Frazer Robinson"
+  spec.authors      = "Jordan Carroll", "Kris Jones", "Frazer Robinson", "Chris McClune"
   spec.license      = "MIT"
 
   spec.platform     = :ios, "12.1"
