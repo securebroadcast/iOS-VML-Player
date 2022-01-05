@@ -17,8 +17,13 @@ To deploy the framework:
 
 ---
 
-1. Drag and drop the framework folder intro your Xcode Project
-2. In your projects setting, under Frameworks, Libraries and Embedded Content ensure the option "Embed & Sign' is selected 
+### Using Cocoapods
+
+* Add the pod file reference to your iOS Target using the latest release.
+```jsx
+pod 'VMLPlayerController', :git => 'https://github.com/securebroadcast/iOS-VML-Player', :tag => '1.0.1'
+```
+* Pod install
 
 ## Using the Framework
 
