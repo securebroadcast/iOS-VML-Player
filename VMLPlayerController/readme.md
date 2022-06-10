@@ -1,10 +1,10 @@
 
 ### To Start, run the following commands
 
-setup .npmrc to get access to @securebroadcast packages on github. Install the .npmrc file in the project root directory with the following code:
+setup .npmrc to get access to @securebroadcast packages on github. 
+Add the following line to the .npmrc file in the project root directory, if you dont already have a token setup in your user .npmrc file :
 ``` 
 //npm.pkg.github.com/:_authToken=[YOUR AUTH TOKEN HERE]
-@securebroadcast:registry=https://npm.pkg.github.com/
 ```
 
 You'll need to replace the [YOUR AUTH TOKEN HERE] above with a [Personal Access Token from Github](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
@@ -12,12 +12,11 @@ You'll need to replace the [YOUR AUTH TOKEN HERE] above with a [Personal Access 
 Then run the following commands:
 
 ```
-npm install --save-dev browserify
-npm install --save-dev browserify-css
 npm install
-
-browserify -t browserify-css PlayerSetup.js > bundle.js
+npm run build
 ```
+
+The bundle file will be saved in bundle.js
 
 ## Updating the Web Player 
 

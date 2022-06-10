@@ -21,6 +21,7 @@ const callService = async (url, options, method, body) => {
     headers = {};
     headers['Authorization'] = getVariableFromLocalStorage(SESSION_KEY);
     headers['X-Host-Domain'] = (window.location != window.parent.location) ? document.referrer : document.location.href;
+    headers['X-Segments'] = getArrayOfSegments();
 
     try {
         return await fetch(url, {
@@ -111,6 +112,13 @@ function getParametersFromUrl() {
 
     var urlParameters = url.substring(url.indexOf("?"));
     return urlParameters;
+}
+
+function getArrayOfSegments() {
+    if (this.localData.vml_segments != undefined) {
+        return this.localData.vml_segments;
+    }
+    return undefined;
 }
 
 //MARK: Session helpers
