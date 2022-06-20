@@ -2,26 +2,24 @@ require('./main.css');
 
 const createWebPlayer = require('@securebroadcast/sbtwebplayer');
 const SESSION_KEY='SESSION_ID';
-var currentTimeInVideo = 0;
-var urlParameters = "";
-var localData = "";
-var playerOptions = {};
-var projectDuration;
-var isFirstPLay = false;
-var playFunction;
-var pauseFunction;
+let currentTimeInVideo = 0;
+let projectDuration;
+let isFirstPlay = false;
+let playFunction;
+let pauseFunction;
 
 //const baseUrl = "http://localhost:3000/dev/";
-const baseUrl =  "https://1y0yuxp5wc.execute-api.eu-west-1.amazonaws.com/prod/";
+// const baseUrl =  "https://1y0yuxp5wc.execute-api.eu-west-1.amazonaws.com/prod/";
 // const baseUrl = "https://api.vml.technology/uat/";
+const baseUrl = "https://ttkxgledqi.execute-api.eu-west-1.amazonaws.com/uat/";
 
 //MARK: Networking
 const callService = async (url, options, method, body) => {
 
-    headers = {};
+    const headers = {};
     headers['Authorization'] = getVariableFromLocalStorage(SESSION_KEY);
-    headers['X-Host-Domain'] = (window.location != window.parent.location) ? document.referrer : document.location.href;
-    headers['X-Segments'] = getArrayOfSegments();
+    headers['X-Host-Domain'] = (window.location !== window.parent.location) ? document.referrer : document.location.href;
+    // headers['X-Segments'] = getArrayOfSegments();
 
     try {
         return await fetch(url, {
@@ -31,7 +29,7 @@ const callService = async (url, options, method, body) => {
         headers
         });
     } catch (e) {
-        rg4js('send', 'callService: ' + e);
+        console.log('send', 'callService: ' + e);
     }
 };
 
@@ -40,7 +38,7 @@ const parseJson = async response => {
     try {
         return response.json()
     } catch (e) {
-        rg4js('send', 'parseJson: ' + e);
+        console.log('send', 'parseJson: ' + e);
     }
 
     return {};
@@ -49,7 +47,7 @@ const parseJson = async response => {
 //MARK: API Requests
 
 const getVML = async (url, options, body) => {
-    const response = await callService(url, options, 'GET', body);
+    const response = await callService(url, options, options.method, body);
     const json = await parseJson(response);
     setVariableInLocalStorage(SESSION_KEY, json.session);
     projectDuration = json.duration;
@@ -60,10 +58,10 @@ const getVML = async (url, options, body) => {
 
 const logAnalytics = async(event, timeInVideo, metaData) => {
 
-    var projectId = getProjectID()
-    var url = baseUrl + "analytics/"
+    const projectId = getProjectID()
+    const url = baseUrl + "analytics/"
 
-    var body = {
+    const body = {
         projectId: projectId,
         event:event,
         player_time: timeInVideo,
@@ -82,7 +80,7 @@ function getProjectID() {
     var vars = {};
 
     // local data parameter takes precidence
-    if (this.localData.vml_id != undefined) {
+    if (this.localData.vml_id !== undefined) {
         return this.localData.vml_id;
     }
 
@@ -90,19 +88,20 @@ function getProjectID() {
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
         vars[key] = value;
     });
-    if (vars.id != undefined) {
+
+    if (vars.id !== undefined) {
         return vars.id;
     }
 
     return vars.id;
 }
 
-function getParametersFromUrl() {
-    var url;
+function getParametersFromUrl(urlParameters) {
+    let url;
     if (window.location.href.includes('?')) {
-        url = window.location.href + "&" + this.urlParameters;
+        url = window.location.href + "&" + urlParameters;
     } else {
-        url = window.location.href + "?" + this.urlParameters;
+        url = window.location.href + "?" + urlParameters;
     }
 
     // There are no URL parameters
@@ -110,16 +109,9 @@ function getParametersFromUrl() {
         return "";
     }
 
-    var urlParameters = url.substring(url.indexOf("?"));
-    return urlParameters;
+    return url.substring(url.indexOf("?"));
 }
 
-function getArrayOfSegments() {
-    if (this.localData.vml_segments != undefined) {
-        return this.localData.vml_segments;
-    }
-    return undefined;
-}
 
 //MARK: Session helpers
 
@@ -128,6 +120,7 @@ function getVariableFromLocalStorage(key) {
 }
 
 function setVariableInLocalStorage(key, value) {
+
     window.localStorage.setItem(key, value);
 }
 
@@ -135,9 +128,9 @@ function setVariableInLocalStorage(key, value) {
 
 function onPlay(currentTime) {
     currentTimeInVideo = currentTime;
-    if (!isFirstPLay) {
+    if (!isFirstPlay) {
         logAnalytics("PLAY_CLICK", currentTime, null);
-        isFirstPLay = true;
+        isFirstPlay = true;
     }
 }
 
@@ -148,7 +141,7 @@ function onPause(currentTime) {
 
 function onProgress(currentTime) {
     currentTimeInVideo = currentTime;
-    var currentPercent = (currentTimeInVideo / projectDuration) * 100;
+    const currentPercent = (currentTimeInVideo / projectDuration) * 100;
     logAnalytics("PLAYING", currentPercent, null);
 }
 
@@ -178,9 +171,7 @@ function onReady({totalDuration, actions}) {
     playFunction = actions.play;
     pauseFunction = actions.pause;
 
-    console.log(this.playerOptions)
-
-    if (this.playerOptions.autoplay == true) {
+    if (this.playerOptions.autoplay === true) {
 
     console.log("Auto playing")
         actions.play();
@@ -198,19 +189,15 @@ function onElementClicked(id, clickTime) {
 // The most common use case is for the host (iFrame) to contain the ID and have its data personalised from the host url parameters
 
 
-const getService = async ({ url, options }) => getVML(baseUrl + "vml/" + getProjectID() + getParametersFromUrl(), { options, method: 'GET' });
-
 window.initPlayer = function(initData, playerOptions) {
-    
-    this.urlParameters = initData.urlParameters;
-    this.localData = initData.localData;
-    this.playerOptions = playerOptions;
-    var displayControls = playerOptions.showPlayerControls == true ?  ['time', 'progress', 'play'] : [];
-    var aspectRatio = playerOptions.videoFormat;
+    const displayControls = playerOptions.showPlayerControls === true ?  ['time', 'progress', 'play'] : [];
+    const aspectRatio = playerOptions.videoFormat;
+    const getPreviewService = async ({ options }) => getVML(baseUrl + "preview", { options, method: 'POST' }, initData.localData);
+    const getProjectService = async ({ options }) => getVML(baseUrl + "vml/" + getProjectID() + getParametersFromUrl(initData.urlParameters), { options, method: 'GET' });
 
     createWebPlayer({
         attachTo: "video",
-        service: getService,
+        service: getPreviewService,
         projectId: 1,
         onPlay: onPlay,
         onPause: onPause,
